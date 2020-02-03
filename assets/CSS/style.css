@@ -1,0 +1,14 @@
+.container-left{
+    margin: 0;
+    background-color: grey;
+    height: 100% !important;
+}
+
+.container-right{
+    margin-left: 32rem;
+    margin-top: -8rem;
+}
+
+.result-name{
+    font-size: 3rem;
+}
