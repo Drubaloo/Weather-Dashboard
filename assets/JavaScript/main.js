@@ -5,7 +5,7 @@ console.log(`fucking test`)
 function displayWeatherInfo() {
     
     var city = $(this).attr("data-name")
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=9960537bc504b12a81ff658aa9dd27bd";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=9960537bc504b12a81ff658aa9dd27bd";
 
 
 
