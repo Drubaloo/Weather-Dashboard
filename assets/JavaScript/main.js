@@ -1,5 +1,7 @@
 var cities = [`San Fransisco`, `Washington DC`, `The Woodlands`, `Sacramento`, `Houston`]
 
+console.log(`fucking test`)
+
 function displayWeatherInfo() {
     
     var city = $(this).attr("data-name")
