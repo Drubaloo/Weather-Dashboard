@@ -28,7 +28,7 @@
 
     <div class="container container-left col-3">
         <div class="input-group  mb-3 ">
-            <input type="text" class="form-control" id="city-input" placeholder="Zip Code" aria-label="Recipient's username"
+            <input type="text" class="form-control" id="city-input" placeholder="search for a city" aria-label="Recipient's username"
                 aria-describedby="button-addon2">
             <div class="input-group-append">
                 <button class="btn btn-primary" type="button" id="button-addon2">🔎</button>
@@ -39,8 +39,9 @@
    
 
     <div class="container container-right col-8">
-        <div class="row border mx-auto" >
-            <div class="result-name mx-auto" id="result-name">Atlanta</div>
+        <div class="block border mx-auto" >
+            <div class="result-name mx-auto" id="result-name">PLEASE PICK YOUR CITY</div>
+            <div id="date-name"></div>
             <div class="result-temp" id="result-temp"></div>
             <div class="result-humidity" id="result-humidity"></div>
             <div class="result-wind-speed" id="result-wind-speed"></div>
@@ -51,51 +52,57 @@
         <div class="row">
             <div class="card mx-auto" style="width: 10rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title" id="day1date">Pick your city</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="day1Icon">Card</h6>
+                  <p class="card-text" id="day1Temp"></p>
+                  <p class="card-text" id="day1Humidity"></p>
                   
                 </div>
               </div>
               <div class="card mx-auto" style="width: 10rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title" id="day2date">Pick your city</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="day2Icon">Card</h6>
+                  <p class="card-text" id="day2Temp"></p>
+                  <p class="card-text" id="day2Humidity"></p>
                   
                 </div>
               </div>
               <div class="card mx-auto" style="width: 10rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title" id="day3date">Pick your city</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="day3Icon">Card</h6>
+                  <p class="card-text" id="day3Temp"></p>
+                  <p class="card-text" id="day3Humidity"></p>
                   
                 </div>
               </div>
               <div class="card mx-auto" style="width: 10rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title" id="day4date">Pick your city</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="day4Icon">Card</h6>
+                  <p class="card-text" id="day4Temp"></p>
+                  <p class="card-text" id="day4Humidity"></p>
                   
                 </div>
               </div>
               <div class="card mx-auto" style="width: 10rem;">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title" id="day5date">Pick your city</h5>
+                  <h6 class="card-subtitle mb-2 text-muted" id="day5Icon">Card</h6>
+                  <p class="card-text" id="day5Temp"></p>
+                  <p class="card-text" id="day5Humidity"></p>
                   
                 </div>
               </div>
+              
               
         </div>
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
     <script src="./assets/JavaScript/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

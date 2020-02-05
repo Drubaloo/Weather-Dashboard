@@ -7,9 +7,17 @@
 .container-right{
     margin-left: 32rem;
     margin-top: 0rem;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .result-name{
     font-size: 3rem;
+}
+
+.card{
+    background-color: #2178fa;
+    color: white !important;
+    border: 2rem;
 }
 
