@@ -36,37 +36,40 @@ function displayWeatherInfo() {
         var name = response.city.name;
 
         //storing the date
-        var date = response.list[0].dt_txt
 
+        var date = new Date(response.list[0].dt_txt)
+
+        var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+        date = date.toLocaleDateString("en-US", options);
         //getting icon information
         var icon = response.list[0].weather[0].icon
 
-        if (icon == `01d` || `01n`) {
+        if (icon == `01d` || icon == `01n`) {
             var image = $(`#result-icon`).attr(`src`, clear)
             $(`#result-icon`).append(image)
-        } else if (icon == `02d` || `02n`) {
+        } else if (icon == `02d` || icon == `02n`) {
             var image = $(`#result-icon`).attr(`src`, fewClouds)
             $(`#result-icon`).append(image)
-        }  else if (icon == `03d` || `03n`) {
+        } else if (icon == `03d` || icon == `03n`) {
             var image = $(`#result-icon`).attr(`src`, scatteredClouds)
             $(`#result-icon`).append(image)
-        } else if (icon == `04d` || `04n`) {
+        } else if (icon == `04d` || icon == `04n`) {
             var image = $(`#result-icon`).attr(`src`, brokenClouds)
             $(`#result-icon`).append(image)
-        } else if (icon == `09d` || `09n`) {
+        } else if (icon == `09d` || icon == `09n`) {
             var image = $(`#result-icon`).attr(`src`, showerRain)
             $(`#result-icon`).append(image)
-        } else if (icon == `10d` || `10n`) {
+        } else if (icon == `10d` || icon == `10n`) {
             var image = $(`#result-icon`).attr(`src`, rain)
             $(`#result-icon`).append(image)
-        } else if (icon == `11d` || `11n`) {
+        } else if (icon == `11d` || icon == `11n`) {
             var image = $(`#result-icon`).attr(`src`, thunderStorm)
             $(`#result-icon`).append(image)
-        }  else if (icon == `13d` || `13n`) {
+        } else if (icon == `13d` || icon == `13n`) {
             var image = $(`#result-icon`).attr(`src`, snow)
             $(`#result-icon`).append(image)
         }
-
 
 
 
@@ -96,73 +99,52 @@ function displayWeatherInfo() {
         // setting wind speed text
         $(`#result-wind-speed`).text(`Wind Speed: ` + windSpeed + ` MPH`)
 
-        // Setting up forcast tiles
-        var day1Date = response.list[0].dt_txt
-        var day1Temp = response.list[0].main.temp
-        var day1Humidity = response.list[0].main.humidity
-        var day1Icon = response.list[0].weather[0].icon
-        
-        $(`#day1date`).text(day1Date)
 
-        if (day1Icon == `01d` || `01n`) {
-            var image = $(`#day1icon`).attr(`src`, clear)
-            $(`#day1icon`).append(image)
-        } else if (day1Icon == `02d` || `02n`) {
-            var image = $(`#day1icon`).attr(`src`, fewClouds)
-            $(`#day1icon`).append(image)
-        }  else if (day1Icon == `03d` || `03n`) {
-            var image = $(`#day1icon`).attr(`src`, scatteredClouds)
-            $(`#day1icon`).append(image)
-        } else if (day1Icon == `04d` || `04n`) {
-            var image = $(`#day1icon`).attr(`src`, brokenClouds)
-            $(`#day1icon`).append(image)
-        } else if (day1Icon == `09d` || `09n`) {
-            var image = $(`#day1icon`).attr(`src`, showerRain)
-            $(`#day1icon`).append(image)
-        } else if (day1Icon == `10d` || `10n`) {
-            var image = $(`#day1icon`).attr(`src`, rain)
-            $(`#day1icon`).append(image)
-        } else if (day1Icon == `11d` || `11n`) {
-            var image = $(`#day1icon`).attr(`src`, thunderStorm)
-            $(`#day1icon`).append(image)
-        }  else if (day1Icon == `13d` || `13n`) {
-            var image = $(`#day1icon`).attr(`src`, snow)
-            $(`#day1icon`).append(image)
+        var cardIndex = 1;
+        for (var i = 0; i < response.list.length; i += 8) {
+            // Setting up forcast tiles
+            var cardDate = new Date(response.list[i].dt_txt)
+
+            var options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+
+            cardDate = cardDate.toLocaleDateString("en-US", options);
+
+            var cardTemp = response.list[i].main.temp
+            var cardHumidity = response.list[i].main.humidity
+            var cardIcon = response.list[i].weather[0].icon
+
+            $(`#day${cardIndex}date`).text(cardDate)
+            $(`#day${cardIndex}Temp`).text(`Temp: ` + cardTemp + `F°`)
+            $(`#day${cardIndex}Humidity`).text(`Humidity: ` + cardHumidity + `%`)
+
+            if (cardIcon == `01d` || cardIcon == `01n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, clear)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `02d` || cardIcon == `02n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, fewClouds)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `03d` || cardIcon == `03n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, scatteredClouds)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `04d` || cardIcon == `04n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, brokenClouds)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `09d` || cardIcon == `09n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, showerRain)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `10d` || cardIcon == `10n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, rain)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `11d` || cardIcon == `11n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, thunderStorm)
+                $(`#day${cardIndex}Icon`).append(image)
+            } else if (cardIcon == `13d` || cardIcon == `13n`) {
+                var image = $(`#day${cardIndex}Icon`).attr(`src`, snow)
+                $(`#day${cardIndex}Icon`).append(image)
+            }
+            cardIndex += 1;
         }
-
-        $(`#day1Temp`).text(`Temp: ` + day1Temp + `F°`)
-        $(`#day1Humidity`).text(`Humidity: ` + day1Humidity + `%`)
-
-        var day2Date = response.list[8].dt_txt
-        var day2Temp = response.list[8].main.temp
-        var day2Humidity = response.list[8].main.humidity
-        $(`#day2date`).text(day2Date)
-        $(`#day2Temp`).text(`Temp: ` + day2Temp + `F°`)
-        $(`#day2Humidity`).text(`Humidity: ` + day2Humidity + `%`)
-
-        var day3Date = response.list[16].dt_txt
-        var day3Temp = response.list[16].main.temp
-        var day3Humidity = response.list[16].main.humidity
-        $(`#day3date`).text(day3Date)
-        $(`#day3Temp`).text(`Temp: ` + day3Temp + `F°`)
-        $(`#day3Humidity`).text(`Humidity: ` + day3Humidity + `%`)
-
-        var day4Date = response.list[24].dt_txt
-        var day4Temp = response.list[24].main.temp
-        var day4Humidity = response.list[24].main.humidity
-        $(`#day4date`).text(day4Date)
-        $(`#day4Temp`).text(`Temp: ` + day4Temp + `F°`)
-        $(`#day4Humidity`).text(`Humidity: ` + day4Humidity + `%`)
-
-        var day5Date = response.list[32].dt_txt
-        var day5Temp = response.list[32].main.temp
-        var day5Humidity = response.list[32].main.humidity
-        $(`#day5date`).text(day5Date)
-        $(`#day5Temp`).text(`Temp: ` + day5Temp + `F°`)
-        $(`#day5Humidity`).text(`Humidity: ` + day5Humidity + `%`)
-
     });
-
 }
 
 
