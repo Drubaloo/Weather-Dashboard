@@ -15,9 +15,40 @@ function displayWeatherInfo() {
         method: "GET"
 
     }).then(function (response) {
-        console.log(response.list[0].weather[0].icon)
+        var UVIndex = `https://api.openweathermap.org/data/2.5/uvi?appid=9960537bc504b12a81ff658aa9dd27bd&lat=` + response.city.coord.lat + `&lon=` + response.city.coord.lon
 
-        console.log(response)
+        $.ajax({
+            url: UVIndex,
+            method: "GET"
+
+        }).then(function (UVResponse) {
+            
+            //UV index
+        $(`#result-uv-index`).text(`UV Index: ` + UVResponse.value)
+            if (UVResponse.value <= 2){
+                $(`#result-uv-index`).removeClass(`moderate`)
+                $(`#result-uv-index`).removeClass(`high`)
+                $(`#result-uv-index`).removeClass(`very-high`)
+                $(`#result-uv-index`).addClass(`low`)
+            } else if (UVResponse.value <= 5) {
+                $(`#result-uv-index`).removeClass(`low`)
+                $(`#result-uv-index`).removeClass(`high`)
+                $(`#result-uv-index`).removeClass(`very-high`)
+                $(`#result-uv-index`).addClass(`moderate`)
+            } else if (UVResponse.value <= 7) {
+                $(`#result-uv-index`).removeClass(`moderate`)
+                $(`#result-uv-index`).removeClass(`low`)
+                $(`#result-uv-index`).removeClass(`very-high`)
+                $(`#result-uv-index`).addClass(`high`)
+            } else {
+                $(`#result-uv-index`).removeClass(`moderate`)
+                $(`#result-uv-index`).removeClass(`high`)
+                $(`#result-uv-index`).removeClass(`low`)
+                $(`#result-uv-index`).addClass(`very-high`)
+            }
+
+        })
+        
 
         var clear = `http://openweathermap.org/img/wn/01d@2x.png`
         var fewClouds = `http://openweathermap.org/img/wn/02d@2x.png`
@@ -99,6 +130,7 @@ function displayWeatherInfo() {
         // setting wind speed text
         $(`#result-wind-speed`).text(`Wind Speed: ` + windSpeed + ` MPH`)
 
+        
 
         var cardIndex = 1;
         for (var i = 0; i < response.list.length; i += 8) {

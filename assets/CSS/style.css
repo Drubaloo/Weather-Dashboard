@@ -1,14 +1,19 @@
+body{
+    background-image: url(../Images/vidar-nordli-mathisen-Vl5Awbq9jx0-unsplash.jpg);
+}
+
 .container-left{
-    margin: 0;
-    background-color: grey;
+    float: left;
     height: 100% !important;
 }
 
 .container-right{
-    margin-left: 32rem;
+    
+    float: right;
     margin-top: 0rem;
     text-align: center;
     flex-wrap: wrap;
+    color: white;
 }
 
 .result-name{
@@ -20,4 +25,25 @@
     color: white !important;
     border: 2rem;
 }
+
+.low{
+    background-color: green;
+    color: black;
+}
+
+.moderate{
+    background-color: yellow;
+    color: black;
+}
+
+.high{
+    background-color: orange;
+    color: black;
+}
+
+.very-high{
+    background-color: red;
+    color: black;
+}
+
 
