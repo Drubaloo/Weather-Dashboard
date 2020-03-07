@@ -17,6 +17,8 @@ function displayWeatherInfo() {
     }).then(function (response) {
         var UVIndex = `https://api.openweathermap.org/data/2.5/uvi?appid=9960537bc504b12a81ff658aa9dd27bd&lat=` + response.city.coord.lat + `&lon=` + response.city.coord.lon
 
+console.log(response)
+
         $.ajax({
             url: UVIndex,
             method: "GET"

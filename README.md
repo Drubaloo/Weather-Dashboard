@@ -14,6 +14,9 @@ HTML5, CSS, Bootstrap, JavaScript
 ## Update Note (Feb 5, 2020)
 - Updated JS to have a working prototype
 
+## Update Note (Feb 7, 2020)
+- Updated JS to have full functionality
+
 
 
 ## I love getting feedback and support! 🎆🎇🎈
@@ -21,7 +24,7 @@ HTML5, CSS, Bootstrap, JavaScript
 
 ## ☁🌡⚡🌩 Preview
 
-![Image of Preview]()
+![Image of Preview](assets/preview.png)
 
 
 
