@@ -202,23 +202,41 @@ function renderButtons() {
         // Added the button to the buttons-view div
         $("#buttons-view").prepend(a);
     }
+    $(`#buttons-view${[0]}`).click()
 }
 
 // This function handles events where the search button is clicked
 $("#button-addon2").on("click", function (event) {
     event.preventDefault();
+
     // This line of code will grab the input from the textbox
     var city = $("#city-input").val().trim();
 
     // The city from the textbox is then added to our array
     cities.push(city);
-
     // Calling renderButtons which handles the processing of our city array
-    renderButtons();
+    displayWeatherInfo()
+    
+     // Then dynamicaly generates buttons for each city in the array
+     var a = $("<button>");
+     // Adds a class of city to our button
+     a.addClass("city btn btn-primary m-1 col-12");
+     // Added a data-attribute
+     a.attr("data-name", city);
+     // Provided the initial button text
+     a.text(city);
+     // Added the button to the buttons-view div
+     $("#buttons-view").prepend(a);
+
+     a.click()
+    
+
+    
 });
 
 // Adding click event listeners to all elements with a class of "city"
 $(document).on("click", ".city", displayWeatherInfo);
+
 
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
