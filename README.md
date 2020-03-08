@@ -24,7 +24,11 @@ HTML5, CSS, Bootstrap, JavaScript
 
 ## ☁🌡⚡🌩 Preview
 
+<<<<<<< HEAD
 ![Image of Preview](assets/Images/preview.png)
+=======
+![Image of Preview](/assets/Images/preview.png)
+>>>>>>> 6cbd7b4cbcc249f2f46408213031534f71300b27
 
 
 
