@@ -30,7 +30,7 @@ HTML5, CSS, Bootstrap, JavaScript
 
 
 
-##Author
+## Author
 
 **🏍Dru Sanchez🏍**
 *Twitter: [ImNotDrumatic](https://twitter.com/ImNotDrumatic)
